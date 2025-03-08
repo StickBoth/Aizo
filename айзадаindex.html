@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С 8 Марта!</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f9f3f0;
+            font-family: Arial, sans-serif;
+            transition: opacity 1s;
+        }
+        h1, h2 {
+            color: #d63384;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            background-color: #ff85a2;
+            color: white;
+            padding: 15px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #d63384;
+        }
+    </style>
+</head>
+<body onload="startMusic()">
+
+    <audio id="background-music" loop>
+        <source src="audio/background-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="content">
+        <h1>С 8 Марта!</h1>
+        <p>Этот сайт создан специально для тебя Айзада❤️ </p>
+        <img src="https://dorama.land/uploads/generated/serials/0/og/avariynaya-posadka-lyubvi1.webp?v=1" alt="Главное изображение">
+        <br>
+        <button onclick="nextSlide()">Начать</button>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+
+        const slides = [
+            { text: '"Ты можешь всё, если поверишь в себя. Никогда не сдавайся!"', image: "https://sun1-88.userapi.com/TCx0kz0MP_lIgyTXrVs6_l5UN9bZVMrElxfxqA/K3NhVdS_fxc.jpg" },
+            { text: '"Настоящие друзья – это те, кто поддерживает тебя даже в самые трудные времена."', image: "https://www.allkpop.com/upload/2022/05/content/231955/1653350149-20220523-dearm.jpg" },
+            { text: '"Неважно, какие трудности встречаются на пути – главное, что ты не одна."', image: "https://picsovet2.kidstaff.com.ua/uploads/2021/11/13/20211113073628819686365_650x650.jpg" },
+            { text: '"Ты заслуживаешь быть счастливой. Не забывай об этом!"', image: "https://images.iptv.rt.ru/images/c6u6afrir4ssllttd2s0.jpg" },
+            { text: '"Ты гораздо сильнее, чем думаешь. Всё наладится, просто верь в себя.', image: "https://avatars.dzeninfra.ru/get-zen_doc/3985629/pub_5f81c3d8b1a4d95dc0d920a9_5f81c4ae5c2b3403ce5d0f7b/scale_1200" },
+            { text: '"Будь смелой, будь сильной, и мир откроет перед тобой тысячи возможностей."', image: "https://doramy.club/wp-content/uploads/2021/06/mudraya-zhizn-v-bolnice-2.jpg" },
+            { text: '"Иногда нужно просто немного подождать, и все начнет складываться правильно."', image: "https://avatars.dzeninfra.ru/get-zen_doc/4303740/pub_606ef7a29d33fa0e1cdef47c_6070ab52660d4852ae975a93/scale_1200" },
+            { text: '"Иногда самые незначительные моменты становятся самыми важными в нашей жизни."', image: "https://img.wattpad.com/b2d5082a6308a0f6cad86f4343a42daec6d34d8c/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f34517657504768784e63736172513d3d2d35382e3135653461376531346263656630323232343032323934303133372e6a7067" },
+            { text: '"Я не могу ударить девушку, но мысленно уже это сделал."', image: "https://thumbs.dfs.ivi.ru/storage39/contents/c/4/cbfaabfb49ab10f2fcdb069a42f207.jpg/858x483/?q=85" },
+            { text: '"Любой выбор требует жертв"', image: "https://www.yesasia.ru/wp-content/uploads/2023/04/image-1019.png" }
+        ];
+
+        function nextSlide() {
+            if (slideIndex < slides.length) {
+                const content = document.getElementById("content");
+                content.innerHTML = `
+                    <h2>${slides[slideIndex].text}</h2>
+                    <img src="${slides[slideIndex].image}" alt="Кадр из дорамы">
+                    <br>
+                    <button onclick="nextSlide()">Дальше</button>
+                `;
+                slideIndex++;
+            } else {
+                document.getElementById("content").innerHTML = `
+                    <h1>Спасибо, что посмотрела!</h1>
+                    <p>Айзада мага тарынбай, жүр аа)) </p>
+                `;
+            }
+        }
+
+        function startMusic() {
+            document.getElementById("background-music").play();
+        }
+    </script>
+
+</body>
+</html>
